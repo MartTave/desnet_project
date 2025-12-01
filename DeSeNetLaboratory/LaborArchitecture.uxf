@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>104</x>
+      <y>296</y>
+      <w>312</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Gateway
+--
+bg=green
+layer=-1
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>448</x>
+      <y>64</y>
+      <w>544</w>
+      <h>600</h>
+    </coordinates>
+    <panel_attributes>Common
+--
+bg=yellow
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>120</x>
+      <y>328</y>
+      <w>120</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Application
+--
+halign=left
+GatewayApplication
+DisplayApplication
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>120</x>
+      <y>400</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Platform
+--
+lt=.
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>104</x>
+      <y>72</y>
+      <w>312</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Sensor
+--
+bg=cyan
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>120</x>
+      <y>104</y>
+      <w>144</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Application
+--
+halign=left
+AccelerometerApplication
+JoystickApplication
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>648</x>
+      <y>104</y>
+      <w>312</w>
+      <h>528</h>
+    </coordinates>
+    <panel_attributes>Platform
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>472</x>
+      <y>96</y>
+      <w>152</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>MiddleWare
+--
+ITimeSlotManager
+NetworkInterfaceDriver
+Beacon 
+Frame
+MultiPDU
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>472</x>
+      <y>216</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>XF
+--
+XFEvent
+XFTimeout
+XF
+XFReactive
+XFThread
+XFTimeoutManager
+halign=left
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>248</x>
+      <y>328</y>
+      <w>120</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>MiddleWare
+--
+lt=.
+halign=left
+Net
+AbstractApplication
+NetworkEntity
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>248</x>
+      <y>400</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>XF
+--
+lt=.
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>272</x>
+      <y>176</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>XF
+--
+lt=.
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>272</x>
+      <y>104</y>
+      <w>128</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>MiddleWare
+--
+lt=.
+halign=left
+Net
+AbstractApplication
+NetworkEntity
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>120</x>
+      <y>176</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Platform
+--
+lt=.
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>664</x>
+      <y>144</y>
+      <w>280</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Nucleo
+--
+
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>680</x>
+      <y>176</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Desenet
+--
+NrfTransceiverDriver
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>808</x>
+      <y>176</y>
+      <w>120</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Board
+--
+Accelerometer
+SimpleDisplay
+Joystick
+LedController
+halign=left
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>680</x>
+      <y>224</y>
+      <w>112</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>MCU
+--
+TimeSlotManager
+I2c
+Spi
+Uart
+halign=left
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>680</x>
+      <y>360</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Desenet
+--
+NrfMeshsimDriver
+halign=left
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>664</x>
+      <y>328</y>
+      <w>280</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Mesh-Sim
+--
+
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>808</x>
+      <y>360</y>
+      <w>128</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Board
+--
+Accelerometer
+SimpleDisplay
+Joystick
+LedController
+halign=left
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>680</x>
+      <y>408</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>MCU
+--
+TimeSlotManager
+halign=left
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>664</x>
+      <y>472</y>
+      <w>280</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Common
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>680</x>
+      <y>496</y>
+      <w>160</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Board
+--
+halign=left
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>696</x>
+      <y>520</y>
+      <w>128</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Interfaces
+--
+IJoystick
+IJoystickObserver
+IMonochromeDisplay
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
