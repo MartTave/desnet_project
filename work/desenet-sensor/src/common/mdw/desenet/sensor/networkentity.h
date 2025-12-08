@@ -28,7 +28,7 @@ class Net;
 /**
  * @brief Implements the desenet protocol on the network layer.
  */
-class NetworkEntity
+class NetworkEntity : public ITimeSlotManager::Observer
 {
     friend class AbstractApplication;
     friend class Net;
@@ -43,6 +43,11 @@ public:
     static NetworkEntity & instance();																		///< Returns reference to single instance.
 
     desenet::SlotNumber slotNumber() const;     ///< Returns the actual slot number.
+
+    void svSyncRequest(AbstractApplication * app);
+    bool svPublishRequest(AbstractApplication * app, SvGroup group);
+    void evPublishRequest(EvId id, const SharedByteBuffer & evData);
+
 protected:
     /**
      * @brief Holds event information.
@@ -64,6 +69,11 @@ protected:
      */
     void onReceive(NetworkInterfaceDriver & driver, const uint32_t receptionTime, const uint8_t * const buffer, size_t length);
 
+    /**
+     * @brief Method called on the observer to notify new signal.
+     */
+    virtual void onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal);
+
 protected:
     inline ITimeSlotManager & timeSlotManager() const { assert(_pTimeSlotManager); return *_pTimeSlotManager; }	///< Internal access to TimeSlotManager
     inline NetworkInterfaceDriver & transceiver() const { assert(_pTransceiver); return *_pTransceiver; }		///< Internal access to Transceiver
@@ -78,6 +88,11 @@ protected:
     static NetworkEntity * _pInstance;				///< Pointer to single instance.
     ITimeSlotManager * _pTimeSlotManager;			///< Pointer to TimeSlotManager.
     NetworkInterfaceDriver * _pTransceiver;			///< Pointer to transceiver.
+
+    ApplicationSyncList _syncList;
+    ApplicationPublishersArray _publishers;
+    EventElementList _events;
+    SvGroupMask _svGroupMask;
 };
 
 } // sensor

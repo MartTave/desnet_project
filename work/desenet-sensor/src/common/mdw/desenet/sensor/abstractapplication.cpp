@@ -12,18 +12,17 @@ using desenet::sensor::AbstractApplication;
 
 void AbstractApplication::svSyncRequest()
 {
-    // TODO: Register application using the network entity
+    NetworkEntity::instance().svSyncRequest(this);
 }
 
 bool AbstractApplication::svPublishRequest(SvGroup group)
 {
-    // TODO: Register application for the provided group using the network entity
-    return false;
+    return NetworkEntity::instance().svPublishRequest(this, group);
 }
 
 void AbstractApplication::evPublishRequest(EvId id, const SharedByteBuffer & evData)
 {
-    // TODO: Publish event data
+    NetworkEntity::instance().evPublishRequest(id, evData);
 }
 
 /**

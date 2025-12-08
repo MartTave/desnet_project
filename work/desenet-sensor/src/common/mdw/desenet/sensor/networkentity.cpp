@@ -8,9 +8,11 @@
 #include "board/ledcontroller.h"
 #include "desenet/frame.h"
 #include "desenet/beacon.h"
+#include "desenet/multipdu.h"
 #include "desenet/timeslotmanager.h"
 #include "abstractapplication.h"
 #include "networkentity.h"
+#include "trace/trace.h"
 
 using std::array;
 using std::list;
@@ -30,6 +32,7 @@ NetworkEntity::NetworkEntity()
 {
 	assert(!_pInstance);		// Only one instance allowed
 	_pInstance = this;
+    _publishers.fill(nullptr);
 }
 
 NetworkEntity::~NetworkEntity()
@@ -45,7 +48,8 @@ void NetworkEntity::initializeRelations(ITimeSlotManager & timeSlotManager, Netw
 	_pTimeSlotManager = &timeSlotManager;
     _pTransceiver = &transceiver;
 
-    // TODO: Add additional initialization code here
+    // Register observer
+    _pTimeSlotManager->initializeRelations(*this);
 
      // Set the receive callback between transceiver and network. Bind this pointer to member function
     transceiver.setReceptionHandler(std::bind(&NetworkEntity::onReceive, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
@@ -76,7 +80,87 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
     (void)(receptionTime);
 	Frame frame = Frame::useBuffer(buffer, length);
 
-    // TODO: Add your code here
+    if (frame.type() == FrameType::Beacon)
+    {
+        Beacon beacon(frame);
+
+        // Notify TimeSlotManager
+        timeSlotManager().onBeaconReceived(beacon.slotDuration());
+
+        // Store mask
+        _svGroupMask = beacon.svGroupMask();
+
+        // Notify applications
+        for (auto app : _syncList)
+        {
+            app->svSyncIndication(beacon.networkTime());
+        }
+    }
+}
+
+void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal)
+{
+    (void)(timeSlotManager);
+    
+    if (signal == ITimeSlotManager::SIG::OWN_SLOT_START)
+    {
+        MultiPdu mpdu;
+        mpdu.setNodeId(slotNumber());
+        
+        // Iterate publishers
+        for (size_t i = 0; i < _publishers.size(); ++i)
+        {
+            if (_publishers[i] && _svGroupMask.test(i))
+            {
+                // Ensure space for header + data (at least 1 byte header)
+                if (mpdu.remainingLength() < 1) break;
+
+                uint8_t* pHeader = mpdu.pduBuffer();
+                
+                // Create proxy buffer for remaining space, skipping the header byte
+                SharedByteBuffer buffer = SharedByteBuffer::proxy(pHeader + 1, mpdu.remainingLength() - 1);
+                
+                size_t written = _publishers[i]->svPublishIndication(static_cast<SvGroup>(i), buffer);
+                if (written > 0)
+                {
+                    // Construct ePDU header: [ Group (5 bits) | Length (3 bits) ]
+                    // Group 2 (0010) << 3 = 0001 0000 (0x10)
+                    // Length 6 (0110) & 07 = 0000 0110 (0x06)
+                    // Result: 0x16
+                    *pHeader = (static_cast<uint8_t>(i) << 3) | (static_cast<uint8_t>(written) & 0x07);
+                    Trace::outln("Writing ePDU: Group %d, Len %d, Header %x", i, written, *pHeader);
+                    
+                    mpdu.commitPdu(1 + written); // Commit header + data
+                    mpdu.incrementePduCount();
+                }
+            }
+        }
+        
+        if (mpdu.ePduCount() > 0)
+        {
+            transceiver() << mpdu;
+        }
+    }
+}
+
+void NetworkEntity::svSyncRequest(AbstractApplication * app)
+{
+    _syncList.push_back(app);
+}
+
+bool NetworkEntity::svPublishRequest(AbstractApplication * app, SvGroup group)
+{
+    if (group < _publishers.size() && _publishers[group] == nullptr)
+    {
+        _publishers[group] = app;
+        return true;
+    }
+    return false;
+}
+
+void NetworkEntity::evPublishRequest(EvId id, const SharedByteBuffer & evData)
+{
+    _events.emplace_back(id, evData);
 }
 
 board::LedController & NetworkEntity::ledController() const

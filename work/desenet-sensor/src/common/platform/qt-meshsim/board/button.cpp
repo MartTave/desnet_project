@@ -2,9 +2,9 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QMouseEvent>
-#include <QEnterEvent>
 #include <QSvgRenderer>
 #include <QPixmap>
+#include <QEvent> // Include QEvent explicitly for QEvent* parameter
 
 Button::Button(Color color, int x, int y, int width, int height, QWidget *parent)
     : QWidget(parent)
@@ -71,7 +71,7 @@ void Button::paintEvent(QPaintEvent *event)
     renderer.render(&painter, rect());
 }
 
-void Button::enterEvent(QEnterEvent *event)
+void Button::enterEvent(QEvent *event)
 {
     Q_UNUSED(event)
     if (_currentState == ButtonReleased) {
