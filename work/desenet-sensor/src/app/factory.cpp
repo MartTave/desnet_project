@@ -82,6 +82,7 @@ void Factory::buildApplication()
 
     // Initialize applications
     accelerometerApplication().initialize();
+    joystickApplication().initialize();
 
     //
     // Initialize relations
@@ -106,6 +107,7 @@ void Factory::buildApplication()
     clockwork().start();
     net().start();
     accelerometerApplication().start();
+    joystickApplication().start();
 }
 
 app::AccelerometerApplication & Factory::accelerometerApplication() const
@@ -113,6 +115,13 @@ app::AccelerometerApplication & Factory::accelerometerApplication() const
     static app::AccelerometerApplication accelerometerApp;
 
     return accelerometerApp;
+}
+
+app::JoystickApplication & Factory::joystickApplication() const
+{
+    static app::JoystickApplication joystickApp;
+
+    return joystickApp;
 }
 
 Net & Factory::net() const

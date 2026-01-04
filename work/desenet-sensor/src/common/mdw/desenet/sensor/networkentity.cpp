@@ -135,6 +135,32 @@ void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, c
                 }
             }
         }
+
+        // Iterate events
+        auto it = _events.begin();
+        while (it != _events.end())
+        {
+             // Check space: 1 byte header + data length
+             if (mpdu.remainingLength() < (1 + it->data.length())) break; // No more space
+
+             uint8_t* pHeader = mpdu.pduBuffer();
+
+             // Copy data
+             memcpy(pHeader + 1, it->data.data(), it->data.length());
+
+             // Construct ePDU header
+             // We assume EvId maps directly to the Group field (4 bits)
+             // We set the 5th bit (0x10) to indicate it's an Event (Hypothesis)
+             uint8_t groupField = static_cast<uint8_t>(it->id) | 0x10;
+             *pHeader = (groupField << 3) | (static_cast<uint8_t>(it->data.length()) & 0x07);
+
+             Trace::outln("Writing Event ePDU: Id %d, Len %d, Header %x", it->id, it->data.length(), *pHeader);
+
+             mpdu.commitPdu(1 + it->data.length());
+             mpdu.incrementePduCount();
+
+             it = _events.erase(it);
+        }
         
         if (mpdu.ePduCount() > 0)
         {

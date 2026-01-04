@@ -53,6 +53,7 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../../src/app/accelerometerapplication.cpp \
+		../../src/app/joystickapplication.cpp \
 		../../src/app/factory.cpp \
 		../../src/common/mdw/desenet/beacon.cpp \
 		../../src/common/mdw/desenet/frame.cpp \
@@ -96,6 +97,7 @@ SOURCES       = ../../src/app/accelerometerapplication.cpp \
 		moc_meshsimboard.cpp \
 		moc_navigationjoystick.cpp
 OBJECTS       = home/marttave/projects/desnet_project/work/desenet-sensor/src/app/accelerometerapplication.o \
+		home/marttave/projects/desnet_project/work/desenet-sensor/src/app/joystickapplication.o \
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/app/factory.o \
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/beacon.o \
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/frame.o \
@@ -266,6 +268,7 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
 		desenet-sensor.pro ../../src/app/accelerometerapplication.h \
+		../../src/app/joystickapplication.h \
 		../../src/app/factory.h \
 		../../src/common/mdw/desenet/address.hpp \
 		../../src/common/mdw/desenet/beacon.h \
@@ -315,6 +318,7 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		../../src/xf/xftimeout.h \
 		../../src/xf/xftimeoutmanager.h \
 		platform/qt-meshsim/platform-config.h ../../src/app/accelerometerapplication.cpp \
+		../../src/app/joystickapplication.cpp \
 		../../src/app/factory.cpp \
 		../../src/common/mdw/desenet/beacon.cpp \
 		../../src/common/mdw/desenet/frame.cpp \
@@ -634,8 +638,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../src/app/accelerometerapplication.h ../../src/app/factory.h ../../src/common/mdw/desenet/address.hpp ../../src/common/mdw/desenet/beacon.h ../../src/common/mdw/desenet/desenet.h ../../src/common/mdw/desenet/frame.h ../../src/common/mdw/desenet/itimeslotmanager.h ../../src/common/mdw/desenet/networkinterfacedriver.h ../../src/common/mdw/desenet/networktimeprovider.h ../../src/common/mdw/desenet/types.h ../../src/common/mdw/desenet/sensor/abstractapplication.h ../../src/common/mdw/desenet/sensor/net.h ../../src/common/mdw/desenet/sensor/networkentity.h ../../src/common/mdw/trace/trace.h ../../src/common/mdw/clockwork/clockwork.h ../../src/common/mdw/clockwork/ttime.h ../../src/common/mdw/gui/monochromedisplaypainter.h ../../src/common/mdw/containers/sharedbuffer.hpp ../../src/common/mdw/containers/SharedBuffer ../../src/common/mdw/containers/SharedByteBuffer ../../src/common/platform/qt-meshsim/board/accel/accelerometer.h ../../src/common/platform/qt-meshsim/board/board.h ../../src/common/platform/qt-meshsim/board/button.h ../../src/common/platform/qt-meshsim/board/display/simpledisplay.h ../../src/common/platform/qt-meshsim/board/factory.h ../../src/common/platform/qt-meshsim/board/joystick.h ../../src/common/platform/qt-meshsim/board/led.h ../../src/common/platform/qt-meshsim/board/ledcontroller.h ../../src/common/platform/qt-meshsim/board/meshsimboard.h ../../src/common/platform/qt-meshsim/board/navigationjoystick.h ../../src/common/platform/qt-meshsim/desenet/timeslotmanager.h ../../src/common/platform/qt-meshsim/mcu/critical/critical.h ../../src/common/platform/platform-common/board/interfaces/ijoystick.h ../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h ../../src/common/platform/platform-common/board/interfaces/imonochromedisplay.h ../../src/common/platform/platform-common/board/ledflasher.h ../../src/xf/initialevent.h ../../src/xf/ixfevent.h ../../src/xf/ixfreactive.h ../../src/xf/xf.h ../../src/xf/xfevent.h ../../src/xf/xfeventqueue.hpp ../../src/xf/xfeventstatus.h ../../src/xf/xfnulltransition.h ../../src/xf/xfreactive.h ../../src/xf/xfstaticevent.h ../../src/xf/xfthread.h ../../src/xf/xftimeout.h ../../src/xf/xftimeoutmanager.h platform/qt-meshsim/platform-config.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../src/app/accelerometerapplication.cpp ../../src/app/factory.cpp ../../src/common/mdw/desenet/beacon.cpp ../../src/common/mdw/desenet/frame.cpp ../../src/common/mdw/desenet/networkinterfacedriver.cpp ../../src/common/mdw/desenet/networktimeprovider.cpp ../../src/common/mdw/desenet/sensor/abstractapplication.cpp ../../src/common/mdw/desenet/sensor/net.cpp ../../src/common/mdw/desenet/sensor/networkentity.cpp ../../src/common/mdw/clockwork/clockwork.cpp ../../src/common/mdw/clockwork/ttime.cpp ../../src/common/mdw/gui/monochromedisplaypainter.cpp ../../src/common/mdw/gui/fontlookup.cpp ../../src/common/platform/qt-meshsim/board/accel/accelerometer.cpp ../../src/common/platform/qt-meshsim/board/board.cpp ../../src/common/platform/qt-meshsim/board/button.cpp ../../src/common/platform/qt-meshsim/board/display/simpledisplay.cpp ../../src/common/platform/qt-meshsim/board/factory.cpp ../../src/common/platform/qt-meshsim/board/joystick.cpp ../../src/common/platform/qt-meshsim/board/led.cpp ../../src/common/platform/qt-meshsim/board/ledcontroller.cpp ../../src/common/platform/qt-meshsim/board/meshsimboard.cpp ../../src/common/platform/qt-meshsim/board/navigationjoystick.cpp ../../src/common/platform/qt-meshsim/board/trace.cpp ../../src/common/platform/qt-meshsim/desenet/nic-meshsim.cpp ../../src/common/platform/qt-meshsim/desenet/nic-meshsim-wrapper.cpp ../../src/common/platform/qt-meshsim/desenet/timeslotmanager.cpp ../../src/common/platform/qt-meshsim/mcu/critical/critical.cpp ../../src/common/platform/platform-common/board/ledflasher.cpp ../../src/xf/initialevent.cpp ../../src/xf/xf.cpp ../../src/xf/xfevent.cpp ../../src/xf/xfnulltransition.cpp ../../src/xf/xfreactive.cpp ../../src/xf/xfstaticevent.cpp ../../src/xf/xfthread.cpp ../../src/xf/xftimeout.cpp ../../src/xf/xftimeoutmanager.cpp main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../src/app/accelerometerapplication.h ../../src/app/joystickapplication.h ../../src/app/factory.h ../../src/common/mdw/desenet/address.hpp ../../src/common/mdw/desenet/beacon.h ../../src/common/mdw/desenet/desenet.h ../../src/common/mdw/desenet/frame.h ../../src/common/mdw/desenet/itimeslotmanager.h ../../src/common/mdw/desenet/networkinterfacedriver.h ../../src/common/mdw/desenet/networktimeprovider.h ../../src/common/mdw/desenet/types.h ../../src/common/mdw/desenet/sensor/abstractapplication.h ../../src/common/mdw/desenet/sensor/net.h ../../src/common/mdw/desenet/sensor/networkentity.h ../../src/common/mdw/trace/trace.h ../../src/common/mdw/clockwork/clockwork.h ../../src/common/mdw/clockwork/ttime.h ../../src/common/mdw/gui/monochromedisplaypainter.h ../../src/common/mdw/containers/sharedbuffer.hpp ../../src/common/mdw/containers/SharedBuffer ../../src/common/mdw/containers/SharedByteBuffer ../../src/common/platform/qt-meshsim/board/accel/accelerometer.h ../../src/common/platform/qt-meshsim/board/board.h ../../src/common/platform/qt-meshsim/board/button.h ../../src/common/platform/qt-meshsim/board/display/simpledisplay.h ../../src/common/platform/qt-meshsim/board/factory.h ../../src/common/platform/qt-meshsim/board/joystick.h ../../src/common/platform/qt-meshsim/board/led.h ../../src/common/platform/qt-meshsim/board/ledcontroller.h ../../src/common/platform/qt-meshsim/board/meshsimboard.h ../../src/common/platform/qt-meshsim/board/navigationjoystick.h ../../src/common/platform/qt-meshsim/desenet/timeslotmanager.h ../../src/common/platform/qt-meshsim/mcu/critical/critical.h ../../src/common/platform/platform-common/board/interfaces/ijoystick.h ../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h ../../src/common/platform/platform-common/board/interfaces/imonochromedisplay.h ../../src/common/platform/platform-common/board/ledflasher.h ../../src/xf/initialevent.h ../../src/xf/ixfevent.h ../../src/xf/ixfreactive.h ../../src/xf/xf.h ../../src/xf/xfevent.h ../../src/xf/xfeventqueue.hpp ../../src/xf/xfeventstatus.h ../../src/xf/xfnulltransition.h ../../src/xf/xfreactive.h ../../src/xf/xfstaticevent.h ../../src/xf/xfthread.h ../../src/xf/xftimeout.h ../../src/xf/xftimeoutmanager.h platform/qt-meshsim/platform-config.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../src/app/accelerometerapplication.cpp ../../src/app/joystickapplication.cpp ../../src/app/factory.cpp ../../src/common/mdw/desenet/beacon.cpp ../../src/common/mdw/desenet/frame.cpp ../../src/common/mdw/desenet/networkinterfacedriver.cpp ../../src/common/mdw/desenet/networktimeprovider.cpp ../../src/common/mdw/desenet/sensor/abstractapplication.cpp ../../src/common/mdw/desenet/sensor/net.cpp ../../src/common/mdw/desenet/sensor/networkentity.cpp ../../src/common/mdw/clockwork/clockwork.cpp ../../src/common/mdw/clockwork/ttime.cpp ../../src/common/mdw/gui/monochromedisplaypainter.cpp ../../src/common/mdw/gui/fontlookup.cpp ../../src/common/platform/qt-meshsim/board/accel/accelerometer.cpp ../../src/common/platform/qt-meshsim/board/board.cpp ../../src/common/platform/qt-meshsim/board/button.cpp ../../src/common/platform/qt-meshsim/board/display/simpledisplay.cpp ../../src/common/platform/qt-meshsim/board/factory.cpp ../../src/common/platform/qt-meshsim/board/joystick.cpp ../../src/common/platform/qt-meshsim/board/led.cpp ../../src/common/platform/qt-meshsim/board/ledcontroller.cpp ../../src/common/platform/qt-meshsim/board/meshsimboard.cpp ../../src/common/platform/qt-meshsim/board/navigationjoystick.cpp ../../src/common/platform/qt-meshsim/board/trace.cpp ../../src/common/platform/qt-meshsim/desenet/nic-meshsim.cpp ../../src/common/platform/qt-meshsim/desenet/nic-meshsim-wrapper.cpp ../../src/common/platform/qt-meshsim/desenet/timeslotmanager.cpp ../../src/common/platform/qt-meshsim/mcu/critical/critical.cpp ../../src/common/platform/platform-common/board/ledflasher.cpp ../../src/xf/initialevent.cpp ../../src/xf/xf.cpp ../../src/xf/xfevent.cpp ../../src/xf/xfnulltransition.cpp ../../src/xf/xfreactive.cpp ../../src/xf/xfstaticevent.cpp ../../src/xf/xfthread.cpp ../../src/xf/xftimeout.cpp ../../src/xf/xftimeoutmanager.cpp main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -771,6 +775,45 @@ home/marttave/projects/desnet_project/work/desenet-sensor/src/app/accelerometera
 		../../src/common/mdw/desenet/sensor/abstractapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o home/marttave/projects/desnet_project/work/desenet-sensor/src/app/accelerometerapplication.o ../../src/app/accelerometerapplication.cpp
 
+home/marttave/projects/desnet_project/work/desenet-sensor/src/app/joystickapplication.o: ../../src/app/joystickapplication.cpp ../../src/app/joystickapplication.h \
+		platform/qt-meshsim/platform-config.h \
+		../../src/common/mdw/desenet/desenet.h \
+		../../src/common/mdw/desenet/types.h \
+		../../src/common/mdw/containers/SharedByteBuffer \
+		../../src/common/mdw/containers/sharedbytebuffer.hpp \
+		../../src/common/mdw/containers/SharedBuffer \
+		../../src/common/mdw/containers/sharedbuffer.hpp \
+		../../src/common/mdw/desenet/address.hpp \
+		../../src/common/mdw/trace/Trace \
+		../../src/common/mdw/trace/trace.h \
+		../../src/xf/xfreactive.h \
+		../../src/xf/ixfreactive.h \
+		../../src/xf/xf.h \
+		../../src/xf/xfthread.h \
+		../../src/xf/ixfevent.h \
+		../../src/xf/xfeventqueue.hpp \
+		../../src/xf/xfeventstatus.h \
+		../../src/xf/xftimeout.h \
+		../../src/xf/xfnulltransition.h \
+		../../src/xf/xfevent.h \
+		../../src/common/mdw/desenet/sensor/abstractapplication.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystick.h \
+		../../src/common/platform/qt-meshsim/board/factory.h \
+		../../src/common/platform/qt-meshsim/board/accel/accelerometer.h \
+		../../src/common/platform/qt-meshsim/board/joystick.h \
+		../../src/common/platform/qt-meshsim/board/ledcontroller.h \
+		../../src/common/platform/platform-common/board/ledflasher.h \
+		../../src/common/platform/qt-meshsim/board/meshsimboard.h \
+		../../src/common/platform/platform-common/board/interfaces/imonochromedisplay.h \
+		../../src/common/platform/qt-meshsim/board/navigationjoystick.h \
+		../../src/common/platform/qt-meshsim/board/led.h \
+		../../src/common/platform/qt-meshsim/board/button.h \
+		../../src/common/platform/platform-common/board/interfaces/ibutton.h \
+		../../src/common/platform/platform-common/board/interfaces/buttonstate.h \
+		../../src/common/platform/platform-common/board/interfaces/ibuttonobserver.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o home/marttave/projects/desnet_project/work/desenet-sensor/src/app/joystickapplication.o ../../src/app/joystickapplication.cpp
+
 home/marttave/projects/desnet_project/work/desenet-sensor/src/app/factory.o: ../../src/app/factory.cpp platform/qt-meshsim/platform-config.h \
 		../../src/common/mdw/desenet/desenet.h \
 		../../src/common/mdw/desenet/types.h \
@@ -814,6 +857,9 @@ home/marttave/projects/desnet_project/work/desenet-sensor/src/app/factory.o: ../
 		../../src/common/platform/qt-meshsim/desenet/timeslotmanager.h \
 		../../src/app/accelerometerapplication.h \
 		../../src/common/mdw/desenet/sensor/abstractapplication.h \
+		../../src/app/joystickapplication.h \
+		../../src/xf/xfevent.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h \
 		../../src/common/mdw/clockwork/clockwork.h \
 		../../src/common/mdw/clockwork/ttime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o home/marttave/projects/desnet_project/work/desenet-sensor/src/app/factory.o ../../src/app/factory.cpp
@@ -1351,6 +1397,10 @@ main.o: main.cpp platform/qt-meshsim/platform-config.h \
 		../../src/xf/xftimeout.h \
 		../../src/xf/xfnulltransition.h \
 		../../src/common/mdw/desenet/sensor/abstractapplication.h \
+		../../src/app/joystickapplication.h \
+		../../src/xf/xfevent.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h \
+		../../src/common/platform/platform-common/board/interfaces/ijoystick.h \
 		../../src/common/platform/qt-meshsim/board/accel/accelerometer.h \
 		../../src/common/mdw/clockwork/clockwork.h \
 		../../src/common/mdw/clockwork/ttime.h

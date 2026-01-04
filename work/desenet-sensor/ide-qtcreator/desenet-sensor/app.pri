@@ -8,8 +8,10 @@ INCLUDEPATH += \
 
 HEADERS += \
     $${APP_SRC_PATH}/accelerometerapplication.h \
+    $${APP_SRC_PATH}/joystickapplication.h \
     $${APP_SRC_PATH}/factory.h
 
 SOURCES += \
     $${APP_SRC_PATH}/accelerometerapplication.cpp \
+    $${APP_SRC_PATH}/joystickapplication.cpp \
     $${APP_SRC_PATH}/factory.cpp
