@@ -1,0 +1,116 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam backgroundColor white
+skinparam roundcorner 10
+
+title DeSeNet Sensor Node - Class Diagram
+
+package "app" {
+    class JoystickApplication <<XFReactive>> {
+        +initialize()
+        +start()
+        #processEvent() : EventStatus
+        #onPositionChange(position : IJoystick::Position)
+    }
+
+    class AccelerometerApplication <<XFReactive>> {
+        -MY_GROUP : SvGroup
+        -_accelValuesSyncArray : int16_t[3]
+        +initialize()
+        +start()
+        #svSyncIndication(time : NetworkTime)
+        #svPublishIndication(group : SvGroup, svData : SharedByteBuffer) : sizeType
+        #processEvent() : EventStatus
+    }
+}
+
+package "desenet::sensor" {
+    class Net <<Singleton>> {
+        -_networkEntity : NetworkEntity
+        -_pNetworkInterfaceDriver : NetworkInterfaceDriver*
+        -_timeSlotManager : TimeSlotManager
+        {static} -_pInstance : Net*
+        +initialize(slotNumber : SlotNumber)
+        +start()
+        {static} +instance() : Net&
+        +entity() : NetworkEntity&
+    }
+
+    class NetworkEntity <<ITimeSlotManager::Observer>> {
+        -_syncList : list<AbstractApplication*>
+        -_publishers : array<AbstractApplication*, 16>
+        -_events : list<EventElement>
+        -_svGroupMask : SvGroupMask
+        +initialize()
+        +initializeRelations(tsm : ITimeSlotManager&, transceiver : NetworkInterfaceDriver&)
+        +onReceive(driver, time, buffer, length)
+        +onTimeSlotSignal(tsm, signal)
+        +svSyncRequest(app : AbstractApplication*)
+        +svPublishRequest(app, group) : bool
+        +evPublishRequest(id, evData)
+    }
+
+    abstract class AbstractApplication {
+        #svSyncRequest()
+        #svPublishRequest(group : SvGroup) : bool
+        {static} #evPublishRequest(id : EvId, evData : SharedByteBuffer)
+        {abstract} -svSyncIndication(time : NetworkTime)
+        {abstract} -svPublishIndication(group : SvGroup, svData : SharedByteBuffer) : sizeType
+    }
+}
+
+package "desenet" {
+    class Frame {
+        -buffer_ : SharedByteBuffer
+        -frameLength_ : size_t
+        +type() : FrameType
+        +length() : size_t
+        +destination() : Address
+        #setLength(length : size_t)
+        #setType(type : FrameType)
+    }
+
+    class MultiPdu {
+        +MultiPdu()
+        +setNodeId(id : uint8_t)
+        +addEvent(id : EvId, data : SharedByteBuffer) : bool
+        +getBufferForSv() : SharedByteBuffer
+        +commitSv(group : SvGroup, length : size_t) : bool
+        +pduBuffer() : uint8_t*
+        +remainingLength() : size_t
+        +ePduCount() : uint8_t
+    }
+
+    class Beacon {
+        +networkTime() : uint64_t
+        +cycleInterval() : uint32_t
+        +svGroupMask() : SvGroupMask
+    }
+
+    interface ITimeSlotManager {
+        {abstract} +initialize(slotNumber)
+        {abstract} +onBeaconReceived(slotDuration)
+    }
+}
+
+' Relationships
+AbstractApplication <|-- JoystickApplication
+AbstractApplication <|-- AccelerometerApplication
+XFReactive <|-- JoystickApplication
+XFReactive <|-- AccelerometerApplication
+
+AbstractApplication "friend" -right- NetworkEntity : SAP Interface
+
+Net *-- NetworkEntity
+Net *-- TimeSlotManager
+NetworkEntity o-- AbstractApplication : manages synchronization
+NetworkEntity ..> MultiPdu : composes
+NetworkEntity ..> Beacon : parses
+
+Frame <|-- MultiPdu
+Frame <|-- Beacon
+
+ITimeSlotManager <|.. TimeSlotManager
+ITimeSlotManager "1" <-left- "1" NetworkEntity : observes
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+skinparam backgroundColor white
+
+title JoystickApplication - State Machine (XF)
+
+[*] --> STATE_INITIAL
+
+state STATE_INITIAL {
+    STATE_INITIAL : entry / joystick().setObserver(this)
+}
+
+STATE_INITIAL --> STATE_ROOT : evInitial
+
+state STATE_ROOT {
+    [*] --> IDLE
+    
+    state IDLE {
+    }
+    
+    IDLE --> PUBLISHING : EV_POSITION
+    
+    state PUBLISHING {
+        PUBLISHING : entry / data = event.position
+        PUBLISHING : entry / evPublishRequest(EVID_JOYSTICK, data)
+    }
+    
+    PUBLISHING --> IDLE
+}
+
+note right of STATE_ROOT
+  The application responds to 
+  position changes by publishing
+  an event to the NetworkEntity.
+end note
+
+@enduml

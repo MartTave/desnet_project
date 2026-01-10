@@ -1,0 +1,44 @@
+# C++ compilation artifacts
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+
+# Qt / QMake generated files
+Makefile*
+*.qmake.stash
+moc_*.cpp
+*.moc
+ui_*.h
+qrc_*.cpp
+.qmake.cache
+.qmake.stash
+
+# Executables
+work/desenet-sensor/ide-qtcreator/desenet-sensor/desenet-sensor
+
+# IDE specific - STM32CubeIDE
+work/desenet-sensor/ide-stm32cubeide/launch/
+work/desenet-sensor/ide-stm32cubeide/Debug_Full/
+work/desenet-sensor/ide-stm32cubeide/Release_Full/
+.settings/
+*.launch
+*.elf
+*.bin
+*.hex
+*.map
+
+# IDE specific - QtCreator
+*.pro.user
+*.pro.user.*
+moc_predefs.h
+
+# Mac OS specific
+.DS_Store
+__MACOSX/
+
+# VS Code
+.vscode/

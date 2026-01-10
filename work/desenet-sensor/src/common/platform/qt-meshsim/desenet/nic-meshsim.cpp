@@ -171,7 +171,7 @@ public:
                                    << static_cast<quint32>(length + 3)
                                    << static_cast<quint8>(buffer[0] & 0x80 ? 0xAA : 0x55);
         transmissionCommandBuilder.writeRawData(reinterpret_cast<const char *>(buffer), length);
-        transmissionCommandBuilder << qChecksum(QByteArrayView(reinterpret_cast<const char *>(buffer), length));
+        transmissionCommandBuilder << qChecksum(reinterpret_cast<const char *>(buffer), length);
 
         int status = socket.write(transmissionCommand);
         socket.flush();

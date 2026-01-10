@@ -11,6 +11,7 @@
 #include "desenet/sensor/net.h"
 #include "board/interfaces/imonochromedisplay.h"
 #include "app/accelerometerapplication.h"
+#include "app/joystickapplication.h"
 #include "board/accel/accelerometer.h"
 #include "clockwork/clockwork.h"
 
@@ -40,6 +41,7 @@ public:
 	static Factory & instance() { assert(_pInstance); return *_pInstance; }
 
 	app::AccelerometerApplication & accelerometerApplication() const;
+	app::JoystickApplication & joystickApplication() const;
 
 	Net & net() const;
 	Clockwork & clockwork() const;

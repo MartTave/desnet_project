@@ -1,0 +1,43 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+
+title DeSeNet Protocol - Beacon to Data Transmission
+
+participant "NetworkInterfaceDriver" as NIC
+participant "NetworkEntity" as NE
+participant "TimeSlotManager" as TSM
+participant "AccelerometerApplication" as APP
+participant "Beacon" as B
+participant "MultiPdu" as MPDU
+
+== Phase 1: Synchronization (Beacon Reception) ==
+
+NIC -> NE : onReceive(buffer, length)
+    NE -> NE : Frame::useBuffer(buffer, length)
+    NE -> NE : frame.type() == Beacon
+    NE -> B : Beacon(frame)
+    
+    NE -> TSM : onBeaconReceived(slotDuration)
+    
+    NE -> NE : _svGroupMask = beacon.svGroupMask()
+    
+    NE -> APP : svSyncIndication(networkTime)
+        APP -> APP : GEN(EV_SV_SYNC)
+
+== Phase 2: Transmission (Own Slot) ==
+
+TSM -> NE : onTimeSlotSignal(OWN_SLOT_START)
+    NE -> MPDU : MultiPdu()
+    NE -> MPDU : setNodeId(slotNumber)
+    
+    NE -> APP : svPublishIndication(group, buffer)
+        APP -> APP : _readAccelerometerValues()
+        APP -> APP : write values to buffer
+        APP --> NE : writtenBytes
+    
+    NE -> MPDU : commitSv(group, writtenBytes)
+    
+    NE -> NIC : << MultiPdu
+
+@enduml
