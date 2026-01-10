@@ -11,6 +11,7 @@ HEADERS += \
     $${DESENET_COMMON_SRC_PATH}/desenet.h \
     $${DESENET_COMMON_SRC_PATH}/frame.h \
     $${DESENET_COMMON_SRC_PATH}/itimeslotmanager.h \
+    $${DESENET_COMMON_SRC_PATH}/multipdu.h \
     $${DESENET_COMMON_SRC_PATH}/networkinterfacedriver.h \
     $${DESENET_COMMON_SRC_PATH}/networktimeprovider.h \
     $${DESENET_COMMON_SRC_PATH}/types.h
@@ -19,5 +20,6 @@ HEADERS += \
 SOURCES += \
     $${DESENET_COMMON_SRC_PATH}/beacon.cpp \
     $${DESENET_COMMON_SRC_PATH}/frame.cpp \
+    $${DESENET_COMMON_SRC_PATH}/multipdu.cpp \
     $${DESENET_COMMON_SRC_PATH}/networkinterfacedriver.cpp \
     $${DESENET_COMMON_SRC_PATH}/networktimeprovider.cpp

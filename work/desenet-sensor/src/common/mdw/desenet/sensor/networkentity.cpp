@@ -114,23 +114,18 @@ void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, c
             {
                 if (_svGroupMask.test(i))
                 {
-                    // Ensure space for header + data (at least 1 byte header)
-                    if (mpdu.remainingLength() < 1) break;
+                    // Get buffer for SV
+                    SharedByteBuffer buffer = mpdu.getBufferForSv();
 
-                    uint8_t* pHeader = mpdu.pduBuffer();
-
-                    // Create proxy buffer for remaining space, skipping the header byte
-                    SharedByteBuffer buffer = SharedByteBuffer::proxy(pHeader + 1, mpdu.remainingLength() - 1);
+                    if (buffer.length() == 0) break; // No space left
 
                     size_t written = _publishers[i]->svPublishIndication(static_cast<SvGroup>(i), buffer);
                     if (written > 0)
                     {
-                        // Construct ePDU header: [ Group (5 bits) | Length (3 bits) ]
-                        *pHeader = (static_cast<uint8_t>(i) << 3) | (static_cast<uint8_t>(written) & 0x07);
-                        Trace::outln("Writing ePDU: Group %d, Len %d, Header %x", i, written, *pHeader);
-
-                        mpdu.commitPdu(1 + written); // Commit header + data
-                        mpdu.incrementePduCount();
+                        if (mpdu.commitSv(static_cast<SvGroup>(i), written))
+                        {
+                            Trace::outln("Writing ePDU: Group %d, Len %d", i, written);
+                        }
                     }
                 }
                 else
@@ -144,25 +139,15 @@ void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, c
         auto it = _events.begin();
         while (it != _events.end())
         {
-             // Check space: 1 byte header + data length
-             if (mpdu.remainingLength() < (1 + it->data.length())) break; // No more space
-
-             uint8_t* pHeader = mpdu.pduBuffer();
-
-             // Copy data
-             memcpy(pHeader + 1, it->data.data(), it->data.length());
-
-             // Construct ePDU header: [ Event ID (5 bits) | Length (3 bits) ]
-             // Using 5th bit (0x10) to distinguish Events from SV groups.
-             uint8_t groupField = static_cast<uint8_t>(it->id) | 0x10;
-             *pHeader = (groupField << 3) | (static_cast<uint8_t>(it->data.length()) & 0x07);
-
-             Trace::outln("Writing Event ePDU: Id %d, Len %d, Header %x", it->id, it->data.length(), *pHeader);
-
-             mpdu.commitPdu(1 + it->data.length());
-             mpdu.incrementePduCount();
-
-             it = _events.erase(it);
+             if (mpdu.addEvent(it->id, it->data))
+             {
+                 Trace::outln("Writing Event ePDU: Id %d, Len %d", it->id, it->data.length());
+                 it = _events.erase(it);
+             }
+             else
+             {
+                 break; // No more space
+             }
         }
 
         if (mpdu.ePduCount() > 0)

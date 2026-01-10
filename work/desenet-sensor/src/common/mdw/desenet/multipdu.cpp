@@ -1,4 +1,5 @@
 #include "multipdu.h"
+#include <cstring>
 
 using namespace desenet;
 
@@ -47,4 +48,57 @@ uint8_t MultiPdu::ePduCount() const
 void MultiPdu::incrementePduCount()
 {
     buffer()[HEADER_SIZE + 1]++;
+}
+
+bool MultiPdu::addEvent(EvId id, const SharedByteBuffer & data)
+{
+    // Check space: 1 byte header + data length
+    if (remainingLength() < (1 + data.length()))
+    {
+        return false;
+    }
+
+    uint8_t* pHeader = pduBuffer();
+
+    // Copy data
+    memcpy(pHeader + 1, data.data(), data.length());
+
+    // Construct ePDU header: [ Event ID (5 bits) | Length (3 bits) ]
+    // Using 5th bit (0x10) to distinguish Events from SV groups.
+    uint8_t groupField = static_cast<uint8_t>(id) | 0x10;
+    *pHeader = (groupField << 3) | (static_cast<uint8_t>(data.length()) & 0x07);
+
+    commitPdu(1 + data.length());
+    incrementePduCount();
+
+    return true;
+}
+
+SharedByteBuffer MultiPdu::getBufferForSv()
+{
+    // Ensure space for at least header (1 byte)
+    if (remainingLength() < 1)
+    {
+        return SharedByteBuffer::proxy(static_cast<uint8_t*>(nullptr), 0);
+    }
+    
+    // Return proxy skipping the header byte
+    return SharedByteBuffer::proxy(pduBuffer() + 1, remainingLength() - 1);
+}
+
+bool MultiPdu::commitSv(SvGroup group, size_t length)
+{
+    if (length == 0)
+    {
+        return false; 
+    }
+
+    // Construct ePDU header: [ Group (5 bits) | Length (3 bits) ]
+    uint8_t* pHeader = pduBuffer();
+    *pHeader = (static_cast<uint8_t>(group) << 3) | (static_cast<uint8_t>(length) & 0x07);
+
+    commitPdu(1 + length); // Commit header + data
+    incrementePduCount();
+    
+    return true;
 }

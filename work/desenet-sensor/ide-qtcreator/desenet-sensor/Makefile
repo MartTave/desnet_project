@@ -57,6 +57,7 @@ SOURCES       = ../../src/app/accelerometerapplication.cpp \
 		../../src/app/factory.cpp \
 		../../src/common/mdw/desenet/beacon.cpp \
 		../../src/common/mdw/desenet/frame.cpp \
+		../../src/common/mdw/desenet/multipdu.cpp \
 		../../src/common/mdw/desenet/networkinterfacedriver.cpp \
 		../../src/common/mdw/desenet/networktimeprovider.cpp \
 		../../src/common/mdw/desenet/sensor/abstractapplication.cpp \
@@ -101,6 +102,7 @@ OBJECTS       = home/marttave/projects/desnet_project/work/desenet-sensor/src/ap
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/app/factory.o \
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/beacon.o \
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/frame.o \
+		home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/multipdu.o \
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/networkinterfacedriver.o \
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/networktimeprovider.o \
 		home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/sensor/abstractapplication.o \
@@ -275,6 +277,7 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		../../src/common/mdw/desenet/desenet.h \
 		../../src/common/mdw/desenet/frame.h \
 		../../src/common/mdw/desenet/itimeslotmanager.h \
+		../../src/common/mdw/desenet/multipdu.h \
 		../../src/common/mdw/desenet/networkinterfacedriver.h \
 		../../src/common/mdw/desenet/networktimeprovider.h \
 		../../src/common/mdw/desenet/types.h \
@@ -322,6 +325,7 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		../../src/app/factory.cpp \
 		../../src/common/mdw/desenet/beacon.cpp \
 		../../src/common/mdw/desenet/frame.cpp \
+		../../src/common/mdw/desenet/multipdu.cpp \
 		../../src/common/mdw/desenet/networkinterfacedriver.cpp \
 		../../src/common/mdw/desenet/networktimeprovider.cpp \
 		../../src/common/mdw/desenet/sensor/abstractapplication.cpp \
@@ -638,8 +642,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../src/app/accelerometerapplication.h ../../src/app/joystickapplication.h ../../src/app/factory.h ../../src/common/mdw/desenet/address.hpp ../../src/common/mdw/desenet/beacon.h ../../src/common/mdw/desenet/desenet.h ../../src/common/mdw/desenet/frame.h ../../src/common/mdw/desenet/itimeslotmanager.h ../../src/common/mdw/desenet/networkinterfacedriver.h ../../src/common/mdw/desenet/networktimeprovider.h ../../src/common/mdw/desenet/types.h ../../src/common/mdw/desenet/sensor/abstractapplication.h ../../src/common/mdw/desenet/sensor/net.h ../../src/common/mdw/desenet/sensor/networkentity.h ../../src/common/mdw/trace/trace.h ../../src/common/mdw/clockwork/clockwork.h ../../src/common/mdw/clockwork/ttime.h ../../src/common/mdw/gui/monochromedisplaypainter.h ../../src/common/mdw/containers/sharedbuffer.hpp ../../src/common/mdw/containers/SharedBuffer ../../src/common/mdw/containers/SharedByteBuffer ../../src/common/platform/qt-meshsim/board/accel/accelerometer.h ../../src/common/platform/qt-meshsim/board/board.h ../../src/common/platform/qt-meshsim/board/button.h ../../src/common/platform/qt-meshsim/board/display/simpledisplay.h ../../src/common/platform/qt-meshsim/board/factory.h ../../src/common/platform/qt-meshsim/board/joystick.h ../../src/common/platform/qt-meshsim/board/led.h ../../src/common/platform/qt-meshsim/board/ledcontroller.h ../../src/common/platform/qt-meshsim/board/meshsimboard.h ../../src/common/platform/qt-meshsim/board/navigationjoystick.h ../../src/common/platform/qt-meshsim/desenet/timeslotmanager.h ../../src/common/platform/qt-meshsim/mcu/critical/critical.h ../../src/common/platform/platform-common/board/interfaces/ijoystick.h ../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h ../../src/common/platform/platform-common/board/interfaces/imonochromedisplay.h ../../src/common/platform/platform-common/board/ledflasher.h ../../src/xf/initialevent.h ../../src/xf/ixfevent.h ../../src/xf/ixfreactive.h ../../src/xf/xf.h ../../src/xf/xfevent.h ../../src/xf/xfeventqueue.hpp ../../src/xf/xfeventstatus.h ../../src/xf/xfnulltransition.h ../../src/xf/xfreactive.h ../../src/xf/xfstaticevent.h ../../src/xf/xfthread.h ../../src/xf/xftimeout.h ../../src/xf/xftimeoutmanager.h platform/qt-meshsim/platform-config.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../src/app/accelerometerapplication.cpp ../../src/app/joystickapplication.cpp ../../src/app/factory.cpp ../../src/common/mdw/desenet/beacon.cpp ../../src/common/mdw/desenet/frame.cpp ../../src/common/mdw/desenet/networkinterfacedriver.cpp ../../src/common/mdw/desenet/networktimeprovider.cpp ../../src/common/mdw/desenet/sensor/abstractapplication.cpp ../../src/common/mdw/desenet/sensor/net.cpp ../../src/common/mdw/desenet/sensor/networkentity.cpp ../../src/common/mdw/clockwork/clockwork.cpp ../../src/common/mdw/clockwork/ttime.cpp ../../src/common/mdw/gui/monochromedisplaypainter.cpp ../../src/common/mdw/gui/fontlookup.cpp ../../src/common/platform/qt-meshsim/board/accel/accelerometer.cpp ../../src/common/platform/qt-meshsim/board/board.cpp ../../src/common/platform/qt-meshsim/board/button.cpp ../../src/common/platform/qt-meshsim/board/display/simpledisplay.cpp ../../src/common/platform/qt-meshsim/board/factory.cpp ../../src/common/platform/qt-meshsim/board/joystick.cpp ../../src/common/platform/qt-meshsim/board/led.cpp ../../src/common/platform/qt-meshsim/board/ledcontroller.cpp ../../src/common/platform/qt-meshsim/board/meshsimboard.cpp ../../src/common/platform/qt-meshsim/board/navigationjoystick.cpp ../../src/common/platform/qt-meshsim/board/trace.cpp ../../src/common/platform/qt-meshsim/desenet/nic-meshsim.cpp ../../src/common/platform/qt-meshsim/desenet/nic-meshsim-wrapper.cpp ../../src/common/platform/qt-meshsim/desenet/timeslotmanager.cpp ../../src/common/platform/qt-meshsim/mcu/critical/critical.cpp ../../src/common/platform/platform-common/board/ledflasher.cpp ../../src/xf/initialevent.cpp ../../src/xf/xf.cpp ../../src/xf/xfevent.cpp ../../src/xf/xfnulltransition.cpp ../../src/xf/xfreactive.cpp ../../src/xf/xfstaticevent.cpp ../../src/xf/xfthread.cpp ../../src/xf/xftimeout.cpp ../../src/xf/xftimeoutmanager.cpp main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../src/app/accelerometerapplication.h ../../src/app/joystickapplication.h ../../src/app/factory.h ../../src/common/mdw/desenet/address.hpp ../../src/common/mdw/desenet/beacon.h ../../src/common/mdw/desenet/desenet.h ../../src/common/mdw/desenet/frame.h ../../src/common/mdw/desenet/itimeslotmanager.h ../../src/common/mdw/desenet/multipdu.h ../../src/common/mdw/desenet/networkinterfacedriver.h ../../src/common/mdw/desenet/networktimeprovider.h ../../src/common/mdw/desenet/types.h ../../src/common/mdw/desenet/sensor/abstractapplication.h ../../src/common/mdw/desenet/sensor/net.h ../../src/common/mdw/desenet/sensor/networkentity.h ../../src/common/mdw/trace/trace.h ../../src/common/mdw/clockwork/clockwork.h ../../src/common/mdw/clockwork/ttime.h ../../src/common/mdw/gui/monochromedisplaypainter.h ../../src/common/mdw/containers/sharedbuffer.hpp ../../src/common/mdw/containers/SharedBuffer ../../src/common/mdw/containers/SharedByteBuffer ../../src/common/platform/qt-meshsim/board/accel/accelerometer.h ../../src/common/platform/qt-meshsim/board/board.h ../../src/common/platform/qt-meshsim/board/button.h ../../src/common/platform/qt-meshsim/board/display/simpledisplay.h ../../src/common/platform/qt-meshsim/board/factory.h ../../src/common/platform/qt-meshsim/board/joystick.h ../../src/common/platform/qt-meshsim/board/led.h ../../src/common/platform/qt-meshsim/board/ledcontroller.h ../../src/common/platform/qt-meshsim/board/meshsimboard.h ../../src/common/platform/qt-meshsim/board/navigationjoystick.h ../../src/common/platform/qt-meshsim/desenet/timeslotmanager.h ../../src/common/platform/qt-meshsim/mcu/critical/critical.h ../../src/common/platform/platform-common/board/interfaces/ijoystick.h ../../src/common/platform/platform-common/board/interfaces/ijoystickobserver.h ../../src/common/platform/platform-common/board/interfaces/imonochromedisplay.h ../../src/common/platform/platform-common/board/ledflasher.h ../../src/xf/initialevent.h ../../src/xf/ixfevent.h ../../src/xf/ixfreactive.h ../../src/xf/xf.h ../../src/xf/xfevent.h ../../src/xf/xfeventqueue.hpp ../../src/xf/xfeventstatus.h ../../src/xf/xfnulltransition.h ../../src/xf/xfreactive.h ../../src/xf/xfstaticevent.h ../../src/xf/xfthread.h ../../src/xf/xftimeout.h ../../src/xf/xftimeoutmanager.h platform/qt-meshsim/platform-config.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../src/app/accelerometerapplication.cpp ../../src/app/joystickapplication.cpp ../../src/app/factory.cpp ../../src/common/mdw/desenet/beacon.cpp ../../src/common/mdw/desenet/frame.cpp ../../src/common/mdw/desenet/multipdu.cpp ../../src/common/mdw/desenet/networkinterfacedriver.cpp ../../src/common/mdw/desenet/networktimeprovider.cpp ../../src/common/mdw/desenet/sensor/abstractapplication.cpp ../../src/common/mdw/desenet/sensor/net.cpp ../../src/common/mdw/desenet/sensor/networkentity.cpp ../../src/common/mdw/clockwork/clockwork.cpp ../../src/common/mdw/clockwork/ttime.cpp ../../src/common/mdw/gui/monochromedisplaypainter.cpp ../../src/common/mdw/gui/fontlookup.cpp ../../src/common/platform/qt-meshsim/board/accel/accelerometer.cpp ../../src/common/platform/qt-meshsim/board/board.cpp ../../src/common/platform/qt-meshsim/board/button.cpp ../../src/common/platform/qt-meshsim/board/display/simpledisplay.cpp ../../src/common/platform/qt-meshsim/board/factory.cpp ../../src/common/platform/qt-meshsim/board/joystick.cpp ../../src/common/platform/qt-meshsim/board/led.cpp ../../src/common/platform/qt-meshsim/board/ledcontroller.cpp ../../src/common/platform/qt-meshsim/board/meshsimboard.cpp ../../src/common/platform/qt-meshsim/board/navigationjoystick.cpp ../../src/common/platform/qt-meshsim/board/trace.cpp ../../src/common/platform/qt-meshsim/desenet/nic-meshsim.cpp ../../src/common/platform/qt-meshsim/desenet/nic-meshsim-wrapper.cpp ../../src/common/platform/qt-meshsim/desenet/timeslotmanager.cpp ../../src/common/platform/qt-meshsim/mcu/critical/critical.cpp ../../src/common/platform/platform-common/board/ledflasher.cpp ../../src/xf/initialevent.cpp ../../src/xf/xf.cpp ../../src/xf/xfevent.cpp ../../src/xf/xfnulltransition.cpp ../../src/xf/xfreactive.cpp ../../src/xf/xfstaticevent.cpp ../../src/xf/xfthread.cpp ../../src/xf/xftimeout.cpp ../../src/xf/xftimeoutmanager.cpp main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -891,6 +895,20 @@ home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet
 		../../src/common/mdw/desenet/frame.h \
 		../../src/common/mdw/desenet/networkinterfacedriver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/frame.o ../../src/common/mdw/desenet/frame.cpp
+
+home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/multipdu.o: ../../src/common/mdw/desenet/multipdu.cpp ../../src/common/mdw/desenet/multipdu.h \
+		../../src/common/mdw/desenet/frame.h \
+		platform/qt-meshsim/platform-config.h \
+		../../src/common/mdw/desenet/desenet.h \
+		../../src/common/mdw/desenet/types.h \
+		../../src/common/mdw/containers/SharedByteBuffer \
+		../../src/common/mdw/containers/sharedbytebuffer.hpp \
+		../../src/common/mdw/containers/SharedBuffer \
+		../../src/common/mdw/containers/sharedbuffer.hpp \
+		../../src/common/mdw/desenet/address.hpp \
+		../../src/common/mdw/trace/Trace \
+		../../src/common/mdw/trace/trace.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/multipdu.o ../../src/common/mdw/desenet/multipdu.cpp
 
 home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/networkinterfacedriver.o: ../../src/common/mdw/desenet/networkinterfacedriver.cpp ../../src/common/mdw/desenet/networkinterfacedriver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o home/marttave/projects/desnet_project/work/desenet-sensor/src/common/mdw/desenet/networkinterfacedriver.o ../../src/common/mdw/desenet/networkinterfacedriver.cpp
