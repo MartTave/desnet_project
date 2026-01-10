@@ -1,0 +1,8 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:41:5:IXFEvent::IXFEvent(eEventType, int, IXFReactive*)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:42:13:IXFEvent::~IXFEvent()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:42:13:virtual IXFEvent::~IXFEvent()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:66:17:void IXFEvent::setShouldDelete(bool)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:78:9:IXFEvent::_tEventStatus::_tEventStatus()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfstaticevent.cpp:4:1:XFStaticEvent::XFStaticEvent(int, IXFReactive*)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfstaticevent.cpp:11:1:XFStaticEvent::~XFStaticEvent()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfstaticevent.cpp:11:1:virtual XFStaticEvent::~XFStaticEvent()	1

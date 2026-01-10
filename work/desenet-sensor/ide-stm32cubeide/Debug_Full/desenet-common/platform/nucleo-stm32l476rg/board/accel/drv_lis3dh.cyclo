@@ -1,0 +1,6 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/accel/drv_lis3dh.c:48:10:Accelerometer_Init	2
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/accel/drv_lis3dh.c:75:10:Accelerometer_Get	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/accel/drv_lis3dh.c:95:6:Accelerometer_IsInterruptFired	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/accel/drv_lis3dh.c:109:6:Accelerometer_ClearInterrupt	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/accel/drv_lis3dh.c:117:6:Accelerometer_EnableInterrupt	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/accel/drv_lis3dh.c:152:6:Accelerometer_PowerDown	1

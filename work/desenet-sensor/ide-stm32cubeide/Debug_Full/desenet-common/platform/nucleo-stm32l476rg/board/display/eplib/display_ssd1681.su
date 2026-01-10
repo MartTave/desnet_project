@@ -1,0 +1,12 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.cpp:9:6:virtual void ep::DisplaySecond::init()	32	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.cpp:61:6:virtual void ep::DisplaySecond::display(uint8_t*)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.cpp:76:6:virtual void ep::DisplaySecond::setLUTLongRefresh()	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.cpp:85:6:virtual void ep::DisplaySecond::setLUTShortRefresh()	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.cpp:94:6:void ep::DisplaySecond::setRamAddress(uint16_t, uint16_t)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.cpp:111:6:void ep::DisplaySecond::setRamWindow(uint16_t, uint16_t, uint16_t, uint16_t)	32	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.cpp:134:6:void ep::DisplaySecond::updatePartial()	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.cpp:147:6:void ep::DisplaySecond::update()	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.h:22:13:ep::Display::~Display()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.h:22:13:virtual ep::Display::~Display()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.h:51:13:ep::DisplaySecond::~DisplaySecond()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1681.h:51:13:virtual ep::DisplaySecond::~DisplaySecond()	16	static

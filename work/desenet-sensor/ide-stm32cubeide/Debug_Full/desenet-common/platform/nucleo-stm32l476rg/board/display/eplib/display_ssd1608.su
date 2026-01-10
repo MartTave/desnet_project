@@ -1,0 +1,8 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1608.cpp:9:6:virtual void ep::DisplayFirst::init()	32	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1608.cpp:85:6:virtual void ep::DisplayFirst::display(uint8_t*)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1608.cpp:108:6:virtual void ep::DisplayFirst::setLUTLongRefresh()	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1608.cpp:117:6:virtual void ep::DisplayFirst::setLUTShortRefresh()	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.h:22:13:ep::Display::~Display()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.h:22:13:virtual ep::Display::~Display()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1608.h:57:13:ep::DisplayFirst::~DisplayFirst()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display_ssd1608.h:57:13:virtual ep::DisplayFirst::~DisplayFirst()	16	static

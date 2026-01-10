@@ -1,0 +1,4 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/hal/gpo.cpp:11:1:ep::Gpo::Gpo(GPIO_TypeDef*, uint32_t)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/hal/gpo.cpp:20:6:void ep::Gpo::on()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/hal/gpo.cpp:29:6:void ep::Gpo::off()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/hal/gpo.cpp:39:6:void ep::Gpo::set(GPIO_PinState)	1

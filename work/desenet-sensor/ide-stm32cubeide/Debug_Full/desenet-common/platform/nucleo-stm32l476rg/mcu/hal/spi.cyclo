@@ -1,0 +1,13 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:9:1:Spi::Spi(int)	2
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:26:1:Spi::~Spi()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:26:1:virtual Spi::~Spi()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:31:1:Spi::Spi(const Spi&)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:44:21:void __tcf_0()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:51:21:void __tcf_1()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:58:21:void __tcf_2()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:36:7:static Spi& Spi::instance(uint8_t)	11
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:81:6:bool Spi::initialize()	2
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:98:6:void Spi::enable()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:103:6:void Spi::disable()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:112:6:void Spi::resetStateMachine()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/spi.cpp:124:14:Spi::tStatus Spi::sendByte(unsigned char)	1

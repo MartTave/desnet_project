@@ -1,0 +1,16 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:8:1:ep::Paint::Paint()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:15:6:void ep::Paint::initialize(ep::Display*)	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:28:6:void ep::Paint::setBuffer(uint8_t*, uint16_t, uint16_t, uint16_t, uint16_t)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:67:6:void ep::Paint::setRotate(ep::Rotation)	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:80:6:void ep::Paint::setMirroring(uint8_t)	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:96:6:void ep::Paint::setPixel(uint16_t, uint16_t, uint16_t, bool)	40	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:170:6:void ep::Paint::clear(uint8_t, bool)	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:188:6:void ep::Paint::clearWindows(uint16_t, uint16_t, uint16_t, uint16_t, uint16_t)	40	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:201:6:void ep::Paint::update()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:215:6:void ep::Paint::drawPoint(uint16_t, uint16_t, uint16_t, DOT_PIXEL, DOT_STYLE, bool)	40	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:263:6:void ep::Paint::drawLine(uint16_t, uint16_t, uint16_t, uint16_t, uint16_t, LINE_STYLE, DOT_PIXEL, bool)	72	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:336:6:void ep::Paint::drawRectangle(uint16_t, uint16_t, uint16_t, uint16_t, uint16_t, DRAW_FILL, DOT_PIXEL, bool)	56	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:378:6:void ep::Paint::drawCircle(uint16_t, uint16_t, uint16_t, uint16_t, DRAW_FILL, DOT_PIXEL, bool)	48	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:460:6:void ep::Paint::drawChar(uint16_t, uint16_t, char, sFONT*, uint16_t, uint16_t, bool)	48	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:521:6:void ep::Paint::drawString(uint16_t, uint16_t, const char*, sFONT*, uint16_t, uint16_t, bool)	48	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/paint.cpp:570:6:void ep::Paint::drawBitmap(const uint8_t*)	16	static

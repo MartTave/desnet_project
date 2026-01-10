@@ -101,37 +101,41 @@ void NetworkEntity::onReceive(NetworkInterfaceDriver & driver, const uint32_t re
 void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, const ITimeSlotManager::SIG & signal)
 {
     (void)(timeSlotManager);
-    
+
     if (signal == ITimeSlotManager::SIG::OWN_SLOT_START)
     {
         MultiPdu mpdu;
         mpdu.setNodeId(slotNumber());
-        
+
         // Iterate publishers
         for (size_t i = 0; i < _publishers.size(); ++i)
         {
-            if (_publishers[i] && _svGroupMask.test(i))
+            if (_publishers[i])
             {
-                // Ensure space for header + data (at least 1 byte header)
-                if (mpdu.remainingLength() < 1) break;
-
-                uint8_t* pHeader = mpdu.pduBuffer();
-                
-                // Create proxy buffer for remaining space, skipping the header byte
-                SharedByteBuffer buffer = SharedByteBuffer::proxy(pHeader + 1, mpdu.remainingLength() - 1);
-                
-                size_t written = _publishers[i]->svPublishIndication(static_cast<SvGroup>(i), buffer);
-                if (written > 0)
+                if (_svGroupMask.test(i))
                 {
-                    // Construct ePDU header: [ Group (5 bits) | Length (3 bits) ]
-                    // Group 2 (0010) << 3 = 0001 0000 (0x10)
-                    // Length 6 (0110) & 07 = 0000 0110 (0x06)
-                    // Result: 0x16
-                    *pHeader = (static_cast<uint8_t>(i) << 3) | (static_cast<uint8_t>(written) & 0x07);
-                    Trace::outln("Writing ePDU: Group %d, Len %d, Header %x", i, written, *pHeader);
-                    
-                    mpdu.commitPdu(1 + written); // Commit header + data
-                    mpdu.incrementePduCount();
+                    // Ensure space for header + data (at least 1 byte header)
+                    if (mpdu.remainingLength() < 1) break;
+
+                    uint8_t* pHeader = mpdu.pduBuffer();
+
+                    // Create proxy buffer for remaining space, skipping the header byte
+                    SharedByteBuffer buffer = SharedByteBuffer::proxy(pHeader + 1, mpdu.remainingLength() - 1);
+
+                    size_t written = _publishers[i]->svPublishIndication(static_cast<SvGroup>(i), buffer);
+                    if (written > 0)
+                    {
+                        // Construct ePDU header: [ Group (5 bits) | Length (3 bits) ]
+                        *pHeader = (static_cast<uint8_t>(i) << 3) | (static_cast<uint8_t>(written) & 0x07);
+                        Trace::outln("Writing ePDU: Group %d, Len %d, Header %x", i, written, *pHeader);
+
+                        mpdu.commitPdu(1 + written); // Commit header + data
+                        mpdu.incrementePduCount();
+                    }
+                }
+                else
+                {
+                    Trace::outln("NetworkEntity: Group %d skipped (not in mask)", i);
                 }
             }
         }
@@ -148,9 +152,8 @@ void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, c
              // Copy data
              memcpy(pHeader + 1, it->data.data(), it->data.length());
 
-             // Construct ePDU header
-             // We assume EvId maps directly to the Group field (4 bits)
-             // We set the 5th bit (0x10) to indicate it's an Event (Hypothesis)
+             // Construct ePDU header: [ Event ID (5 bits) | Length (3 bits) ]
+             // Using 5th bit (0x10) to distinguish Events from SV groups.
              uint8_t groupField = static_cast<uint8_t>(it->id) | 0x10;
              *pHeader = (groupField << 3) | (static_cast<uint8_t>(it->data.length()) & 0x07);
 
@@ -161,7 +164,7 @@ void NetworkEntity::onTimeSlotSignal(const ITimeSlotManager & timeSlotManager, c
 
              it = _events.erase(it);
         }
-        
+
         if (mpdu.ePduCount() > 0)
         {
             transceiver() << mpdu;

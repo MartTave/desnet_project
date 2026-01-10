@@ -1,0 +1,9 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:41:5:IXFEvent::IXFEvent(eEventType, int, IXFReactive*)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:42:13:IXFEvent::~IXFEvent()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:42:13:virtual IXFEvent::~IXFEvent()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:61:16:int IXFEvent::getId() const	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:78:9:IXFEvent::_tEventStatus::_tEventStatus()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xftimeout.cpp:10:1:XFTimeout::XFTimeout(int, int, IXFReactive*)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xftimeout.cpp:17:1:XFTimeout::~XFTimeout()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xftimeout.cpp:17:1:virtual XFTimeout::~XFTimeout()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xftimeout.cpp:26:6:bool XFTimeout::operator==(const XFTimeout&) const	24	static

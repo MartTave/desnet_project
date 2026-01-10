@@ -1,0 +1,2 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/hal/gpi.cpp:12:1:ep::Gpi::Gpi(GPIO_TypeDef*, uint32_t)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/hal/gpi.cpp:22:15:GPIO_PinState ep::Gpi::read()	1

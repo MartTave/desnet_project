@@ -1,0 +1,8 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/uart.cpp:12:1:Uart::Uart(unsigned char, UART_HandleTypeDef*, bool)	2
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/uart.cpp:36:1:Uart::~Uart()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/uart.cpp:36:1:virtual Uart::~Uart()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/uart.cpp:41:6:bool Uart::initialize()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/uart.cpp:46:6:bool Uart::enable()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/uart.cpp:53:6:bool Uart::disable()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/uart.cpp:60:6:void Uart::write(const char*, unsigned int)	3
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/hal/uart.cpp:78:6:void Uart::writeUsingDMA(const uint8_t*, uint32_t)	2

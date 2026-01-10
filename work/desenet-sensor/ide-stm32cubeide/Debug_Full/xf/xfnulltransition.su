@@ -1,0 +1,7 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:41:5:IXFEvent::IXFEvent(eEventType, int, IXFReactive*)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:42:13:IXFEvent::~IXFEvent()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:42:13:virtual IXFEvent::~IXFEvent()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:78:9:IXFEvent::_tEventStatus::_tEventStatus()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfnulltransition.cpp:10:1:XFNullTransition::XFNullTransition(int, IXFReactive*)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfnulltransition.cpp:15:1:XFNullTransition::~XFNullTransition()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfnulltransition.cpp:15:1:virtual XFNullTransition::~XFNullTransition()	16	static

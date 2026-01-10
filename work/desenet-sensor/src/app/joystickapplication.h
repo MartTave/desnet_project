@@ -41,9 +41,9 @@ protected:
     public:
         evPosition(IJoystick::Position position) :
             XFEvent(EV_POSITION),
-            actualPosition(1)       // Reserve one byte
+            actualPosition(1)
         {
-            memcpy(actualPosition.data(), &position, 1);        // Copy data
+            memcpy(actualPosition.data(), &position, 1);
         }
 
         SharedByteBuffer actualPosition;    

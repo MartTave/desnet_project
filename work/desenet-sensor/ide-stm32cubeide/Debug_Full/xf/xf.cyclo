@@ -1,0 +1,14 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xftimeoutmanager.h:50:16:int XFTimeoutManager::tickInterval() const	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:15:6:static void XF::init(int)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:31:6:static void XF::start()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:41:12:static XFThread* XF::getMainThread()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:46:6:static bool XF::isRunning()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:51:6:void XF_init(int)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:56:6:void XF_start()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:61:6:bool XF_isRunning()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:66:6:void XF_tick()	2
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:76:9:int32_t XF_tickIntervalInMilliseconds()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:79:1:void __static_initialization_and_destruction_0()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:79:1:void __static_initialization_and_destruction_1()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:79:1:cpp)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xf.cpp:79:1:cpp)	1

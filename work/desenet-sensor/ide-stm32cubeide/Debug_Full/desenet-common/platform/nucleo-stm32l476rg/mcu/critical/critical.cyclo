@@ -1,0 +1,2 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/critical/critical.c:8:6:enterCritical	3
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/mcu/critical/critical.c:23:6:exitCritical	3

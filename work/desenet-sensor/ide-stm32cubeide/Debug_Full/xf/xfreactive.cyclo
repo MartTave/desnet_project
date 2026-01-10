@@ -1,0 +1,17 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:48:23:IXFEvent::eEventType IXFEvent::getEventType() const	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfevent.h:59:17:void IXFEvent::setBehavior(IXFReactive*)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfeventstatus.h:32:5:EventStatus::EventStatus(eEventStatus)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfreactive.h:26:5:IXFReactive::IXFReactive(IXFThread*)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfreactive.h:27:13:IXFReactive::~IXFReactive()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/ixfreactive.h:27:13:virtual IXFReactive::~IXFReactive()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:13:1:XFReactive::XFReactive(XFThread*)	2
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:19:1:XFReactive::~XFReactive()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:19:1:virtual XFReactive::~XFReactive()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:24:6:virtual void XFReactive::startBehavior()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:30:6:virtual void XFReactive::pushEvent(IXFEvent*)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:50:13:virtual EventStatus XFReactive::process(IXFEvent*)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:69:13:virtual EventStatus XFReactive::processEvent()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:78:12:virtual XFThread* XFReactive::getThread()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:83:6:void XFReactive::setCurrentEvent(IXFEvent*)	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:88:12:IXFEvent* XFReactive::getCurrentEvent() const	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/xf/xfreactive.cpp:98:13:XFTimeout* XFReactive::getCurrentTimeout()	1

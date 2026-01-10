@@ -1,0 +1,8 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.cpp:8:1:ep::Display::Display()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.cpp:25:6:void ep::Display::initialize(SPI_HandleTypeDef*, ep::Gpo*, ep::Gpi*, ep::Gpo*)	24	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.cpp:42:11:static ep::Display* ep::Display::instance()	4	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.cpp:52:6:void ep::Display::SPI_Write(unsigned char)	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.cpp:62:6:void ep::Display::writeCMD(uint8_t)	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.cpp:73:6:void ep::Display::writeDATA(uint8_t)	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.cpp:82:6:void ep::Display::initReset()	16	static
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/display/eplib/display.cpp:93:6:void ep::Display::lcdChkstatus()	24	static

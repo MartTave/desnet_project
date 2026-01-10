@@ -1,0 +1,12 @@
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/platform-common/board/ledflasher.h:21:10:LedFlasher::~LedFlasher()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/platform-common/board/ledflasher.h:21:10:virtual LedFlasher::~LedFlasher()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:8:1:board::LedController::LedController()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:15:1:board::LedController::~LedController()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:15:1:virtual board::LedController::~LedController()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:23:23:void __tcf_0()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:21:17:static board::LedController& board::LedController::instance()	3
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:28:6:bool board::LedController::initialize()	2
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:38:6:void board::LedController::start()	1
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:43:6:void board::LedController::setLed(int, bool)	3
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:62:6:void board::LedController::flashLed(uint16_t)	2
+/home/marttave/projects/desnet_project/work/desenet-sensor/src/common/platform/nucleo-stm32l476rg/board/ledcontroller.cpp:70:23:const board::LedController& board::LedController::operator=(const board::LedController&)	1
