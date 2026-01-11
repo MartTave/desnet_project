@@ -31,11 +31,20 @@ The real-life setup involves deploying the verified code onto the actual embedde
 *   **Gateway:** A physical Gateway node (provided in the laboratory) that acts as the network master, broadcasting real beacons and collecting data.
 *   **Debug Interface:** Serial/UART output from the Nucleo board is used to monitor logs (`Trace::out`) and verify internal state changes during operation.
 
-TODO: Insert pic of setup
+![real_life_setup](./static/real_life_setup.jpeg)
 
-In this picture, on the left, the gateway, controlled from the computer by a serial port connection. And on the right, the sensor node, *not controller* by the PC (indicated by the solid red led).
+In this picture, on the left, the gateway, controlled from the computer by a serial port connection. And on the right, the sensor node, *not controlled* by the PC (indicated by the solid red led).
 
-TODO: Insert pic of control window
+Now, we can connect to the gateway to control it by launching the test bench.
+
+![gateway_connection](./static/gateway_connection.png)
+
+And, as shown in this picture, selecting the correct TTY port to connect to the gateway
+
+
+![gateway_control](./static/gateway_control.png)
+
+Once this is done, we will access the same interface as in the simulator, this interface allows us to control the gateway
 
 ## Tests cases
 
@@ -104,11 +113,9 @@ And as we can see, there is two new logs concerning the events. This is because 
 
 For this test, we will first press on the joytick, and send a single beacon. As there is no release event for now, the beacon should show that the joystick button is pressed.
 
-We will then release the joystick, and send a new beacon, that should update the joystick status in the beacon.
-
 ![joystick_1](./static/joystick_1.png)
 
-As shown in the first picture, the expected result is correct
+As shown in the first picture, the expected result is correct. We will then release the joystick, and send a new beacon, that should update the joystick status in the beacon.
 
 ![joystick_2](./static/joystick_2.png)
 
@@ -190,3 +197,69 @@ Here are the logs of the node, explained as follows :
 - We send the updated accelerometer value
 
 ## Real-life results
+
+- Beacon receive response correctly and updates the accelerometer value (if needed)
+
+For this test, we will check if value received by the beacon seems correct
+
+- Beacon receive response correctly and updates the joystick (if needed)
+
+For this test, we will check if the joystick buttons value are correctly updated when needed in the beacon
+
+- Node response without accelerometer value when SVGroup 2 is not asked for
+
+For this test, we will send a beacon without the SVGroup2, to check if the response correctly contains no accelerometer value
+
+- Node does not respond if there is no event to send (when SVGroup 2 is still not asked for)
+
+For this test, we will still send a beacon without the SVGroup2, but this time we will check that the node does not respond anything if no joystick buttons are pressed (this means that no new events occured)
+
+
+### Beacon receive and update accelerometer value
+
+For this test, the goal is to check that even in real life, the node respond to the beacon with the correct format, and send correct accelerometer value.
+
+To do this, we will send a single beacon from the gateway, and see if the node respond correctly.
+
+![real_accelerometer](./static/real_accelerometer.png)
+
+And as shown in the picture, the node respond correctly. We will now move the node from laying flat to laying on its side, and re-send a beacon to see if the accelerometer value updates correctly.
+
+![real_accelerometer_2](./static/real_accelerometer_2.png)
+
+And as shown, the value update correctly, so this validates our test.
+
+### Beacon receive and update joystick value
+
+To realise this test, we will press down on the center joystick button, then send a beacon.
+
+![real_life_joystick](./static/real_life_joystick.png)
+
+As shown in the picture, the joystick button state update correctly
+
+Then, we will release the button, and re-send a beacon
+
+![real_life_joystick_2](./static/real_life_joystick_2.png)
+
+And, as expected, the new state is correctly received by the gateway, and updated in the GUI, so this result validate our test.
+
+
+### Node does not respond when no new events happened
+
+For this this, we will deactivate SVGroup2 from the beacon, then send a beacon, and we expect no response as there is no new event to send.
+
+![sv_group_setup](./static/sv_group_setup.png)
+
+![real_life_no_response](./static/real_life_no_response.png)
+
+### Node respond only when there are new event
+
+For this test, we will start by keeping the svgroup2 unchecked, and send a beacon and expect no response.
+
+![real_life_no_response_2](./static/real_life_no_response_2.png)
+
+Then, we will press and release the joystick, and send a single beacon. This time we expect a response.
+
+![real_life_only_joystick](./static/real_life_only_joystick.png)
+
+This confirms that the node respond only when there is a new event, and that the response does not contains accelerometer value.
